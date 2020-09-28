@@ -1,13 +1,45 @@
+
 \documentclass{article}
+
+\usepackage{mathrsfs}
+
+\usepackage[left=.5in,right=.5in,top=.5in,bottom=.5in]{geometry}
+
+% Don't number the sections
+\makeatletter
+\def\@seccntformat#1{%
+  \expandafter\ifx\csname c@#1\endcsname\c@section\else
+  \csname the#1\endcsname\quad
+  \fi}
+\makeatother
 
 \begin{document}
 
-  \fbox{
+% Header with title and date
+
+\textbf{Title:} \line(1,0){260}  
+\hfill  % put the date in the upper right vorner
+\textbf{Date:} \line(1,0){50}
 
 
-    \vspace*{0.80cm} Title: \line(1,0){260}  Date:\line(1,0){25}
+
+\bigskip
+
+% Track info about the negative used
+\section{Negative}
+
+Roll: \line(1,0){100}  \hspace{1cm} Frame: \line(1,0){25}
 
 
-    }
+\bigskip
+
+% Actual printing notes
+\section{Printing}
+
+Lens:  \hspace{.5cm} 50 \hspace{.5cm} 80 \hspace{.5cm} Other: \line(1,0){25} \hfill Paper:  \hspace{.5cm} 8x10 \hspace{.5cm} 11x14 \hspace{.5cm} Other: \line(1,0){40}\\
+
+Base time:\line(1,0){40} \hfill Paper finish: Glossy \hspace{.5cm} Pearl \hspace{.5cm}  Other: \line(1,0){40}  \\
+Base filter:\\
+
 
 \end{document}
