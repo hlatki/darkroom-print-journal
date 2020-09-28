@@ -1,7 +1,7 @@
 
 \documentclass{article}
 
-\usepackage{mathrsfs}
+\usepackage{multido}
 
 \usepackage[left=.5in,right=.5in,top=.5in,bottom=.5in]{geometry}
 
@@ -15,6 +15,9 @@
 
 \begin{document}
 
+% Define the page
+\newcommand{\page}{
+\newpage
 % Header with title and date
 
 \textbf{Title:} \line(1,0){260}  
@@ -52,5 +55,16 @@ Roll: \line(1,0){100}  \hspace{1cm} Frame: \line(1,0){25}
 % Dodging and burning etc,
 \section{Local printing}
 \framebox(500,400){}
+
+}
+
+
+
+
+
+% repeat the same page so we can easily print a book of identical pages
+\multido{}{60}{ \page}
+
+
 
 \end{document}
