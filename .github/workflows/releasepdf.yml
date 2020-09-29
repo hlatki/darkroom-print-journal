@@ -1,5 +1,8 @@
 name: Build PDF from LaTeX document and upload to release
-on: [push]
+on:
+  push:
+    paths:
+      - 'journal.tex' # only execute workflow if the actual LaTeX file got modified
 jobs:
   build_latex:
     runs-on: ubuntu-latest
