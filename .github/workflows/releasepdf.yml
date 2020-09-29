@@ -1,4 +1,4 @@
-name: Build LaTeX document
+name: Build PDF from LaTeX document and upload to release
 on: [push]
 jobs:
   build_latex:
