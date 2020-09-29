@@ -1,4 +1,7 @@
+% This is intended to generate a journal for photographic printing. There's a simple title pages and then as many print sheets as you'd like (change the second param in the \multido to change the default)
 
+% Setup
+% ===============================================================================
 \documentclass{article}
 
 \usepackage{multido}
@@ -7,10 +10,25 @@
 % Don't number the sections
 \makeatletter
 \def\@seccntformat#1{%
-  \expandafter\ifx\csname c@#1\endcsname\c@section\else
-  \csname the#1\endcsname\quad
-  \fi}
+	\expandafter\ifx\csname c@#1\endcsname\c@section\else
+	\csname the#1\endcsname\quad
+	\fi
+}
+
 \makeatother
+
+
+
+% Define a few helpful commands
+% ===============================================================================
+
+% Make a prompt with a line for recording an answer
+% First param is the text of the prompt, second param is the length of the line following the question
+% Example: "\lineprompt{Question}{40}" would generate "Question: _______________"
+
+\newcommand{\lineprompt}[2]{#1:  \line(1,0){#2}}
+
+
 
 
 % Title page 
@@ -21,10 +39,12 @@
 
 
 % This is a hack to show the start and end dates of the journal, rather than when this document was generated (also put it at the bottom of the page)
-\date{\vfill 
-Start date:  \line(1,0){50}  
-\hfill 
-End date: \line(1,0){50}}
+\date{
+	\vfill
+	\lineprompt{Start date}{50}
+	\hfill
+	\lineprompt{End date}{50}
+}
 
 % make the title page use roman numerals for numbering so the first print page can be page 1
 \pagestyle{plain} 
@@ -37,15 +57,15 @@ End date: \line(1,0){50}}
 
 \begin{document}
 
-% Define the page (this will get repeated to make the "book"
+% Define the print page (this will get repeated to make the "book")
 % ===============================================================================
 \newcommand{\page}{
 \newpage
 % Header with title and date
 
-\textbf{Title:} \line(1,0){260}  
+\lineprompt{\textbf{Title}}{260}
 \hfill  % put the date in the upper right corner
-\textbf{Date:} \line(1,0){50}
+\lineprompt{\textbf{Date}}{50}
 
 
 
@@ -54,7 +74,7 @@ End date: \line(1,0){50}}
 % Track info about the negative used
 \section{Negative}
 
-Roll: \line(1,0){100}  \hspace{1cm} Frame: \line(1,0){25}
+\lineprompt{Roll}{100}  \hspace{1cm} \lineprompt{Frame}{25}
 
 
 \bigskip
@@ -63,13 +83,13 @@ Roll: \line(1,0){100}  \hspace{1cm} Frame: \line(1,0){25}
 \section{Global printing}
 \begin{tabular}[t]{@{}l} 
  Lens:  \hspace{.5cm} 50 \hspace{.5cm} 80 \hspace{.5cm} Other: \line(1,0){25} \\ \\
- Base time:   \line(1,0){40} \\ \\
- Base f-stop: \line(1,0){40} \\ \\
- Base filter:   \line(1,0){40} \\ \\
+ \lineprompt{Base time}{40} \\ \\
+ \lineprompt{Base f-stop}{40} \\ \\
+ \lineprompt{Base filter}{40} \\ \\
 \end{tabular}
 \hfill
 \begin{tabular}[t]{l@{}}
-  Paper: \line(1,0){200} \\ \\
+  \lineprompt{Paper}{200} \\ \\
   Paper size:  \hspace{.5cm} 8x10 \hspace{.5cm} 11x14 \hspace{.5cm} Other: \line(1,0){40} \\ \\
   Enlarger position: 
 \end{tabular}
@@ -90,9 +110,9 @@ Roll: \line(1,0){100}  \hspace{1cm} Frame: \line(1,0){25}
 \clearpage
 \pagenumbering{arabic} 
 
-% Repeat the print journal page n times to make the body of the book 
+% Repeat the print journal page n times to make the body of the book
+% THIS IS THE PART YOU SHOULD CHANGE IF YOU WANT FEWER PAGES
 \multido{}{40}{\page}
-
 
 
 \end{document}
