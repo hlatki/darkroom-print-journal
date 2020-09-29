@@ -3,5 +3,5 @@ When you're doing analog photography, it's helpful to have a record of how you m
 
 
 ## OK, I want one
-If you'd like a print journal of your own, download the latest [release](https://github.com/hlatki/darkroom-print-journal/releases) (you want the file called ``journal.pdf``) and print it out! You can also have your local print shop / Office Depot print and bind the book if you'd like something a bit sturdier.
+If you'd like a print journal of your own, download the latest [release](https://github.com/hlatki/darkroom-print-journal/releases/latest) (you want the file called ``journal.pdf``) and print it out! You can also have your local print shop / Office Depot print and bind the book if you'd like something a bit sturdier.
 
