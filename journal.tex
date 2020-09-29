@@ -2,7 +2,6 @@
 \documentclass{article}
 
 \usepackage{multido}
-
 \usepackage[left=.5in,right=.5in,top=.5in,bottom=.5in]{geometry}
 
 % Don't number the sections
@@ -13,15 +12,39 @@
   \fi}
 \makeatother
 
+
+% Title page 
+% ===============================================================================
+
+
+\title{Darkroom Printing Journal}
+
+
+% This is a hack to show the start and end dates of the journal, rather than when this document was generated (also put it at the bottom of the page)
+\date{\vfill 
+Start date:  \line(1,0){50}  
+\hfill 
+End date: \line(1,0){50}}
+
+% make the title page use roman numerals for numbering so the first print page can be page 1
+\pagestyle{plain} 
+\pagenumbering{roman}
+
+% ===============================================================================
+
+
+
+
 \begin{document}
 
-% Define the page
+% Define the page (this will get repeated to make the "book"
+% ===============================================================================
 \newcommand{\page}{
 \newpage
 % Header with title and date
 
 \textbf{Title:} \line(1,0){260}  
-\hfill  % put the date in the upper right vorner
+\hfill  % put the date in the upper right corner
 \textbf{Date:} \line(1,0){50}
 
 
@@ -58,12 +81,17 @@ Roll: \line(1,0){100}  \hspace{1cm} Frame: \line(1,0){25}
 
 }
 
+% ===============================================================================
 
+\maketitle
 
+% the first print sheet should be page 1
+\thispagestyle{empty}
+\clearpage
+\pagenumbering{arabic} 
 
-
-% repeat the same page so we can easily print a book of identical pages
-\multido{}{60}{ \page}
+% Repeat the print journal page n times to make the body of the book 
+\multido{}{50}{ \page}
 
 
 
